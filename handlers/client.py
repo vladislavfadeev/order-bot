@@ -8,7 +8,14 @@ from bot_keyboard import client_kb
 
 ### Реакция на команду /start
 async def command_start(message : types.Message):
-    await bot.send_message(message.from_user.id, 'Погнали!', reply_markup=client_kb.kb_client)
+    await bot.send_message(
+        message.from_user.id,
+        text=(
+            'Рады приветствовать вас! '
+            'У нас вы можете ознакомиться с ассортиментом '
+            'и сделать заказ понравившейся еды прямо себе домой.'
+        ), 
+        reply_markup=client_kb.kb_client)
 
 ### Реакция на "Справка"
 async def command_help(message: types.Message):
@@ -16,11 +23,16 @@ async def command_help(message: types.Message):
 
 ### Реакиция на "Режим работы"
 async def pizza_working_hours(message : types.Message):
-    await message.answer('Мы работаем круглосуточно, 24/7 !!!')
+    await message.answer('Информация о графике работы нашего заведения')
 
 ### Реакция на "Расположение"
 async def pizza__location(message : types.Message):
-    await message.answer('Наш ларек находится на ул. Воронежская 142')
+    await message.answer(
+        'Наши кафе находятся по следующим адресам:\n'
+        '-- ул. Воронежская 142\n'
+        '-- ул. Ленина 45\n'
+        '-- ул. Карла-Маркса 78\n'
+    )
 
 
 
