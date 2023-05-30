@@ -9,7 +9,7 @@ from create_bot import dp, bot
 ''' Подключение к базе данных при запуске бота '''
 def sql_start():
     global base, cur
-    base = sq.connect('order_bot.db')
+    base = sq.connect('data_base/db/order_bot.db')
     cur = base.cursor()
     if base:
         print('Data base connected!')
